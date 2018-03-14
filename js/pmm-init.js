@@ -196,6 +196,8 @@
     }
     // Get time of last po
     values += '&timestamp=' + Drupal.pmm.helpers.getLastVisibleMsgTimeStamp();
+    // Get thread ID.
+    values += '&thread_id=' + Drupal.pmm.helpers.getUrlThreadId();
     // Post & Save.
     $.post(Drupal.pmm.helpers.buildReqUrl('message', {}, 'post'), values, function(data) {
       if (data && data.thread) {

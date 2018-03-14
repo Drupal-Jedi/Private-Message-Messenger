@@ -464,7 +464,7 @@ class MessengerHelper {
    */
   public function validateMessage(array $values) {
     // Require members and a message to save.
-    if (empty($values['members']) || !isset($values['message']) || $values['message'] == '' ) {
+    if (empty($values['thread_id']) || empty($values['members']) || !isset($values['message']) || $values['message'] == '' ) {
       return FALSE;
     }
 
@@ -504,7 +504,7 @@ class MessengerHelper {
     }
 
     // Get a private message thread containing the given users.
-    $private_message_thread = $this->pmService->getThreadForMembers($members);
+    $private_message_thread = PrivateMessageThread::load($values['thread_id']);
 
     // Save the message.
     $message_entity = $this->saveMessageEntity($values);
