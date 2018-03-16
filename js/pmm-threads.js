@@ -33,12 +33,19 @@
         // Listen for threads updates and re-fetch if there is updates.
         $(window).on('pm:threads:updated', function(e, data) {
           // Loop over the models in the threads collection.
-          Drupal.pmm.collections.threadsInstance.each(function(model){
+          var threadUpdated = false;
+          Drupal.pmm.collections.threadsInstance.each(function(model) {
             // If one of those models is in the collection, re-fetch.
             if ($.inArray(parseInt(model.get('threadId')), data.t) !== -1) {
               model.fetch();
+              threadUpdated = true;
             }
-          })
+          });
+
+          // If it's new thread, fetch it.
+          if (!threadUpdated) {
+            Drupal.pmm.collections.threadsInstance.fetch();
+          }
         });
       });
     }
