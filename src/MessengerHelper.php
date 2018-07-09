@@ -2,6 +2,7 @@
 
 namespace Drupal\private_message_messenger;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\user\Entity\User;
 use Drupal\Core\Entity\EntityTypeManager;
@@ -263,7 +264,7 @@ class MessengerHelper {
     // Get a snippet from the last message.
     $last_msgs = array_reverse($thread->getMessages());
     $last_msg = reset($last_msgs);
-    $item->last_message = ($last_msg ? $last_msg->getMessage() : '');
+    $item->last_message = Html::escape(($last_msg ? $last_msg->getMessage() : ''));
 
     // Get the last owner.
     $item->last_owner = ($last_msg ? $last_msg->getOwner() : FALSE);
