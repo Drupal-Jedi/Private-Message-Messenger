@@ -2,7 +2,6 @@
 
 namespace Drupal\private_message_messenger;
 
-use Drupal\Component\Utility\Html;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\user\Entity\User;
 use Drupal\Core\Entity\EntityTypeManager;
