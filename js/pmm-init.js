@@ -15,8 +15,8 @@
   Drupal.pmm.settings = {
     urlThreadPrefix: 'thread',
     urlNewPrefix: 'new',
-    getEndpoint: drupalSettings.path.baseUrl + 'pmm-get/',
-    postEndpoint: drupalSettings.path.baseUrl + 'pmm-post/',
+    getEndpoint: drupalSettings.path.baseUrl + drupalSettings.path.pathPrefix + 'pmm-get/',
+    postEndpoint: drupalSettings.path.baseUrl + drupalSettings.path.pathPrefix + 'pmm-post/',
     widthLarge: 700,
     messengerSelector: '.pmm-messenger',
     maxMembers: 0,
